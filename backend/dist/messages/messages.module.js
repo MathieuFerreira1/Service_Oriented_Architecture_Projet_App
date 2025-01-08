@@ -6,25 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.MessagesModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
-const auth_module_1 = require("./auth/auth.module");
-const users_module_1 = require("./users/users.module");
-const messages_module_1 = require("./messages/messages.module");
-let AppModule = class AppModule {
+const messages_schema_1 = require("./schemas/messages.schema");
+const messages_service_1 = require("./messages.service");
+const messages_controller_1 = require("./messages.controller");
+let MessagesModule = class MessagesModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.MessagesModule = MessagesModule;
+exports.MessagesModule = MessagesModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot('mongodb+srv://mathieu:mathieupassword@cluster0.bmdk5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-                dbName: 'projet',
-            }),
-            auth_module_1.AuthModule,
-            users_module_1.UsersModule,
-            messages_module_1.MessagesModule,
+            mongoose_1.MongooseModule.forFeature([{ name: messages_schema_1.Conversation.name, schema: messages_schema_1.ConversationSchema }]),
         ],
+        controllers: [messages_controller_1.MessagesController],
+        providers: [messages_service_1.MessagesService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], MessagesModule);
+//# sourceMappingURL=messages.module.js.map
