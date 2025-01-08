@@ -16,17 +16,43 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const user_schema_1 = require("./user.schema");
+const user_schema_1 = require("./schemas/user.schema");
+const bcrypt = require("bcrypt");
 let UsersService = class UsersService {
     constructor(userModel) {
         this.userModel = userModel;
     }
-    async create(user) {
-        const createdUser = new this.userModel(user);
-        return createdUser.save();
+    async createUser(createUserDto) {
+        const { password, ...otherDetails } = createUserDto;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new this.userModel({
+            ...otherDetails,
+            password: hashedPassword,
+        });
+        return newUser.save();
     }
-    async findOne(username) {
-        return this.userModel.findOne({ username }).exec();
+    async findOne(email) {
+        return this.userModel.findOne({ email }).exec();
+    }
+    async findByEmail(email) {
+        return await this.userModel.findOne({ email }).exec();
+    }
+    async findByUsername(username) {
+        const user = await this.userModel.findOne({ username }).exec();
+        if (!user) {
+            throw new common_1.NotFoundException(`User with username "${username}" not found`);
+        }
+        return user;
+    }
+    async updateUser(username, updateUserDto) {
+        const user = await this.userModel.findOneAndUpdate({ username }, { $set: updateUserDto }, { new: true });
+        if (!user) {
+            throw new common_1.NotFoundException(`User with username "${username}" not found`);
+        }
+        return user;
+    }
+    async searchByCity(city) {
+        return await this.userModel.find({ city }).exec();
     }
 };
 exports.UsersService = UsersService;

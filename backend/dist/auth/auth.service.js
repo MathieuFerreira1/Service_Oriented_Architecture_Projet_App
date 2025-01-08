@@ -19,9 +19,9 @@ let AuthService = class AuthService {
         this.usersService = usersService;
         this.jwtService = jwtService;
     }
-    async validateUser(username, pass) {
-        const user = await this.usersService.findOne(username);
-        if (user && (await bcrypt.compare(pass, user.password))) {
+    async validateUser(email, password) {
+        const user = await this.usersService.findByEmail(email);
+        if (user && user.password === password) {
             const { password, ...result } = user.toObject();
             return result;
         }
@@ -33,10 +33,10 @@ let AuthService = class AuthService {
             access_token: this.jwtService.sign(payload),
         };
     }
-    async register(user) {
-        const hashedPassword = await bcrypt.hash(user.password, 10);
-        return this.usersService.create({
-            ...user,
+    async register(userDto) {
+        const hashedPassword = await bcrypt.hash(userDto.password, 10);
+        return this.usersService.createUser({
+            ...userDto,
             password: hashedPassword,
         });
     }
