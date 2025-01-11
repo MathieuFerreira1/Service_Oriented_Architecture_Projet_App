@@ -6,7 +6,12 @@ async function bootstrap() {
 
   // Activer CORS dans le backend NestJS
   app.enableCors({
-    origin: 'http://localhost:4201', // L'origine de votre frontend Angular
+    origin: [
+      'http://localhost:4200',
+      'http://localhost:4201',
+      'http://localhost:4202',
+      'http://localhost:4203',
+    ], // Les origines de votre frontend Angular
     methods: 'GET,POST,PUT,DELETE', // Méthodes autorisées
     allowedHeaders: 'Content-Type, Authorization', // Headers autorisés
   });

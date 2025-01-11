@@ -29,8 +29,6 @@ let AuthService = AuthService_1 = class AuthService {
                 return null;
             }
             this.logger.log(`User found: ${user.email}`);
-            this.logger.log(`Hashed password from DB: ${user.password}`);
-            this.logger.log(`Provided password: ${password}`);
             const isMatch = await bcrypt.compare(password, user.password);
             this.logger.log(`Password match result: ${isMatch}`);
             if (!isMatch) {
