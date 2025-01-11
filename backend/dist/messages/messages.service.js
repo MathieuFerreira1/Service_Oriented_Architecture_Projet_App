@@ -54,7 +54,9 @@ let MessagesService = class MessagesService {
     async getConversation(senderId, receiverId) {
         const conversation = await this.conversationModel
             .findOne({
-            participants: { $all: [new mongoose_2.Types.ObjectId(senderId), new mongoose_2.Types.ObjectId(receiverId)] },
+            participants: {
+                $all: [new mongoose_2.Types.ObjectId(senderId), new mongoose_2.Types.ObjectId(receiverId)],
+            },
         })
             .populate('participants', 'username email')
             .exec();

@@ -18,7 +18,9 @@ exports.MessagesModule = MessagesModule;
 exports.MessagesModule = MessagesModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forFeature([{ name: messages_schema_1.Conversation.name, schema: messages_schema_1.ConversationSchema }]),
+            mongoose_1.MongooseModule.forFeature([
+                { name: messages_schema_1.Conversation.name, schema: messages_schema_1.ConversationSchema },
+            ]),
         ],
         controllers: [messages_controller_1.MessagesController],
         providers: [messages_service_1.MessagesService],

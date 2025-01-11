@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthComponent } from './auth.component'; // Importez le composant standalone
+import { AuthentificationComponent } from './authentification/authentification.component'; // Assurez-vous du chemin correct
+import { AuthentificationModule } from './authentification/authentification.module'; // Importez le module
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthComponent, // Utilisez le composant standalone
+    component: AuthentificationComponent, // Ajoutez cette route
   },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    AuthentificationModule, // Importez le module
     RouterModule.forChild(routes),
   ],
 })

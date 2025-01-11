@@ -10,11 +10,13 @@
   },
   "include": [
     "src/**/*.ts",             // Inclut tous les fichiers TypeScript dans src/
-    "src/app/**/*.ts"          // Inclut tous les fichiers dans src/app/
+    "src/app/**/*.ts",          // Inclut tous les fichiers dans src/app/
+    "src/app/authentification/**/*.ts" // Assurez-vous que ce chemin correspond
   ],
   "exclude": [
     "node_modules",            // Exclut node_modules
     "src/test.ts",             // Exclut les fichiers de test
-    "src/**/*.spec.ts"         // Exclut les fichiers de test unitaires
+    "src/**/*.spec.ts" ,        // Exclut les fichiers de test unitaires
+    "dist"
   ]
 }

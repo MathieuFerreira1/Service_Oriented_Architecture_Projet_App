@@ -1,4 +1,4 @@
 export class UpdateUserDto {
-    city?: string;
-    bio?: string;
+  city?: string;
+  bio?: string;
 }
