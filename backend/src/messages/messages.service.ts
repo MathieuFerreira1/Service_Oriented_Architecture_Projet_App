@@ -81,4 +81,18 @@ export class MessagesService {
 
     return conversation;
   }
+
+  // Récupérer une conversation spécifique par ID de conversation
+  async getConversationById(conversationId: string): Promise<Conversation> {
+    const conversation = await this.conversationModel
+      .findById(conversationId)
+      .populate('participants', 'username email')
+      .exec();
+
+    if (!conversation) {
+      throw new NotFoundException('Conversation not found');
+    }
+
+    return conversation;
+  }
 }

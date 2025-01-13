@@ -6,18 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="35779389-b3d0-4123-8c70-d43e367f8e6c" name="Changes" comment="[ADD] secured API Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/auth/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/auth/auth.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/auth/auth.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/auth/auth.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/messages/messages.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/messages/messages.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/messages/messages.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/messages/messages.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -60,7 +65,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "messages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,7 +73,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/backend/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/frontend/auth/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/frontend/messages/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,7 +100,7 @@
       <updated>1736251306503</updated>
       <workItem from="1736251308071" duration="26182000" />
       <workItem from="1736456678234" duration="16910000" />
-      <workItem from="1736597252805" duration="4341000" />
+      <workItem from="1736597252805" duration="23363000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD] secured API Rest">
       <option name="closed" value="true" />

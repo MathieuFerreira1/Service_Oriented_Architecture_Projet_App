@@ -23,8 +23,8 @@ let MessagesController = class MessagesController {
     async getUserConversations(userId) {
         return this.messagesService.getUserConversations(userId);
     }
-    async getConversation(senderId, receiverId) {
-        return this.messagesService.getConversation(senderId, receiverId);
+    async getConversationById(conversationId) {
+        return this.messagesService.getConversationById(conversationId);
     }
     async sendMessage(senderId, receiverId, content) {
         return this.messagesService.sendMessage(senderId, receiverId, content);
@@ -39,13 +39,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], MessagesController.prototype, "getUserConversations", null);
 __decorate([
-    (0, common_1.Get)(':receiverId'),
-    __param(0, (0, common_1.Query)('senderId')),
-    __param(1, (0, common_1.Param)('receiverId')),
+    (0, common_1.Get)('/:conversationId'),
+    __param(0, (0, common_1.Param)('conversationId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
-], MessagesController.prototype, "getConversation", null);
+], MessagesController.prototype, "getConversationById", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)('senderId')),

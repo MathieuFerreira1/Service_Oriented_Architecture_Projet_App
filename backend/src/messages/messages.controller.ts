@@ -21,13 +21,20 @@ export class MessagesController {
     return this.messagesService.getUserConversations(userId);
   }
 
+  // // Récupérer une conversation spécifique
+  // @Get(':receiverId')
+  // async getConversation(
+  //   @Query('senderId') senderId: string,
+  //   @Param('receiverId') receiverId: string,
+  // ) {
+  //   return this.messagesService.getConversation(senderId, receiverId);
+  // }
+
   // Récupérer une conversation spécifique
-  @Get(':receiverId')
-  async getConversation(
-    @Query('senderId') senderId: string,
-    @Param('receiverId') receiverId: string,
-  ) {
-    return this.messagesService.getConversation(senderId, receiverId);
+  // Récupérer une conversation spécifique par ID de conversation
+  @Get('/:conversationId')
+  async getConversationById(@Param('conversationId') conversationId: string) {
+    return this.messagesService.getConversationById(conversationId);
   }
 
   // Envoyer un message

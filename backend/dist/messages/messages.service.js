@@ -65,6 +65,16 @@ let MessagesService = class MessagesService {
         }
         return conversation;
     }
+    async getConversationById(conversationId) {
+        const conversation = await this.conversationModel
+            .findById(conversationId)
+            .populate('participants', 'username email')
+            .exec();
+        if (!conversation) {
+            throw new common_1.NotFoundException('Conversation not found');
+        }
+        return conversation;
+    }
 };
 exports.MessagesService = MessagesService;
 exports.MessagesService = MessagesService = __decorate([

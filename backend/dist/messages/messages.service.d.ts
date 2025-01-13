@@ -7,4 +7,5 @@ export declare class MessagesService {
     sendMessage(senderId: string, receiverId: string, content: string): Promise<Conversation>;
     getUserConversations(userId: string): Promise<Conversation[]>;
     getConversation(senderId: string, receiverId: string): Promise<Conversation>;
+    getConversationById(conversationId: string): Promise<Conversation>;
 }

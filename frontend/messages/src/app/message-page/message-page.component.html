@@ -1,0 +1,11 @@
+<div class="flex h-screen">
+  <!-- Liste des discussions -->
+  <div class="w-1/3 border-r">
+    <app-conversation-list (selectConversation)="onConversationSelected($event)"></app-conversation-list>
+  </div>
+
+  <!-- Partie chat -->
+  <div class="w-2/3">
+    <app-chat [conversationId]="selectedConversationId"></app-chat>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="conversationId" class="flex flex-col h-full">
+  <app-message-list [conversationId]="conversationId"></app-message-list>
+  <div class="p-4">
+    <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Type your message here..." />
+
+  </div>
+</div>
+<div *ngIf="!conversationId" class="flex justify-center items-center h-full">
+  <p>Sélectionnez une conversation pour commencer</p>
+</div>

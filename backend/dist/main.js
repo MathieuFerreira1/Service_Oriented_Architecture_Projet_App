@@ -5,7 +5,12 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({
-        origin: ['http://localhost:4200', 'http://localhost:4201', 'http://localhost:4202', 'http://localhost:4203'],
+        origin: [
+            'http://localhost:4200',
+            'http://localhost:4201',
+            'http://localhost:4202',
+            'http://localhost:4203',
+        ],
         methods: 'GET,POST,PUT,DELETE',
         allowedHeaders: 'Content-Type, Authorization',
     });
