@@ -1,0 +1,7 @@
+<div class="popup-overlay" (click)="closePopup()"></div>
+<div class="popup">
+  <button class="close-button" (click)="closePopup()">&#x2715;</button>
+  <h2>Message de contact à {{ contactName }}</h2>
+  <textarea [(ngModel)]="messageContent" placeholder="Votre message"></textarea>
+  <button (click)="onSend()">Envoyer</button>
+</div>

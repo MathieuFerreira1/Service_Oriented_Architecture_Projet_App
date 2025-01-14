@@ -13,9 +13,8 @@ import { MessageListComponent } from '../message-list/message-list.component';
   styleUrls: ['./message-page.component.css'],
 })
 export class MessagePageComponent implements OnInit {
-  // @ViewChild(MessageListComponent) messageListComponent!: MessageListComponent;
   @ViewChild(ChatComponent) chatComponent!: ChatComponent;
-  selectedConversationId: string | null = null; // Id de la conversation sélectionnée
+  selectedConversationId: string | null = null;
   user: any = null;
   apiUrlUsers = 'http://localhost:3000/users';
   apiUrlMessages = 'http://localhost:3000/messages';
@@ -23,22 +22,20 @@ export class MessagePageComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    // localStorage.setItem(
-    //   'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY3OTMwNDQsImV4cCI6MTczNjc5NjY0NH0.FE06ewqtgbzd07vyTDDqS_4p680CHqRB5mx7wXfo_a4'
-    // );
-
-    // Vérification du JWT pour s'assurer que l'utilisateur est connecté
     const token = localStorage.getItem('jwt');
     if (!token || !this.isValidToken(token)) {
       alert('Vous devez être connecté pour accéder à cette page');
-      window.location.href = '/'; // Rediriger vers la page de connexion
-      return; // Empêche l'accès à la page si le token est invalide
+      window.location.href = '/';
+      return;
     }
 
-    // Récupérer l'utilisateur à partir du token
     const username = this.route.snapshot.paramMap.get('username');
+    const convId = this.route.snapshot.queryParamMap.get('conv');
     if (username) {
       this.getUserByUsername(username);
+    }
+    if (convId) {
+      this.onConversationSelected(convId);
     }
   }
 
@@ -51,24 +48,21 @@ export class MessagePageComponent implements OnInit {
     });
   }
 
-  // Fonction pour vérifier la validité du JWT
   private isValidToken(token: string): boolean {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      // Vérifier si la date d'expiration est valide
       return payload.exp > Date.now() / 1000;
     } catch (e) {
       return false;
     }
   }
 
-  // Méthode appelée lorsqu'une conversation est sélectionnée
   onConversationSelected(conversationId: string): void {
     this.selectedConversationId = conversationId;
     if (this.chatComponent) {
       this.chatComponent.selectConversation(conversationId);
-      this.cdr.markForCheck(); // Mark for check to ensure change detection
-      this.cdr.detectChanges(); // Force change detection
+      this.cdr.markForCheck();
+      this.cdr.detectChanges();
     }
   }
 }

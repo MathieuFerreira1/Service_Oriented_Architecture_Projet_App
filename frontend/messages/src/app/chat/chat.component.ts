@@ -19,9 +19,11 @@ export class ChatComponent {
   @ViewChild(MessageListComponent) messageListComponent!: MessageListComponent;
   newMessage: string = '';
   connectedUserId: string | null = null;
+  convId: string | null = null;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
     this.connectedUserId = this.route.snapshot.paramMap.get('username');
+    // this.convId = this.route.snapshot.queryParamMap.get('conv');
   }
 
   selectConversation(conversationId: string): void {
