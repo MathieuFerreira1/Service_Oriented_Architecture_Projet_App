@@ -6,7 +6,7 @@ import { AuthentificationModule } from './authentification/authentification.modu
 
 const routes: Routes = [
   {
-    path: '',
+    path: '/auth',
     component: AuthentificationComponent, // Ajoutez cette route
   },
 ];

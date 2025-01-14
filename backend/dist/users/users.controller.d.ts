@@ -6,6 +6,7 @@ export declare class UsersController {
     constructor(usersService: UsersService);
     createUser(createUserDto: CreateUserDto): Promise<import("./schemas/user.schema").User>;
     searchByCity(city: string): Promise<import("./schemas/user.schema").User[]>;
+    findByCEmail(email: string): Promise<import("./schemas/user.schema").User>;
     getProfile(username: string): Promise<import("./schemas/user.schema").User>;
     updateProfile(username: string, updateUserDto: UpdateUserDto): Promise<import("./schemas/user.schema").User>;
 }

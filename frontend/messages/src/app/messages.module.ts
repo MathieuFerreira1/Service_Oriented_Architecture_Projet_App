@@ -5,7 +5,7 @@ import { MessagesComponent } from './messages.component'; // Importez le composa
 
 const routes: Routes = [
   {
-    path: '',
+    path: '/messages',
     component: MessagesComponent, // Utilisez le composant standalone
   },
 ];

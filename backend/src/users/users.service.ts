@@ -51,6 +51,10 @@ export class UsersService {
     username: string,
     updateUserDto: UpdateUserDto,
   ): Promise<User> {
+    if (updateUserDto.password) {
+      updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
+    }
+
     const user = await this.userModel.findOneAndUpdate(
       { username },
       { $set: updateUserDto },

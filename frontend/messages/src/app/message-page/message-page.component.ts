@@ -23,14 +23,15 @@ export class MessagePageComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    localStorage.setItem(
-      'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY3OTMwNDQsImV4cCI6MTczNjc5NjY0NH0.FE06ewqtgbzd07vyTDDqS_4p680CHqRB5mx7wXfo_a4'
-    );
+    // localStorage.setItem(
+    //   'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY3OTMwNDQsImV4cCI6MTczNjc5NjY0NH0.FE06ewqtgbzd07vyTDDqS_4p680CHqRB5mx7wXfo_a4'
+    // );
 
     // Vérification du JWT pour s'assurer que l'utilisateur est connecté
     const token = localStorage.getItem('jwt');
     if (!token || !this.isValidToken(token)) {
       alert('Vous devez être connecté pour accéder à cette page');
+      window.location.href = '/'; // Rediriger vers la page de connexion
       return; // Empêche l'accès à la page si le token est invalide
     }
 

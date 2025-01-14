@@ -6,23 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="35779389-b3d0-4123-8c70-d43e367f8e6c" name="Changes" comment="[ADD] secured API Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/messages/messages.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/messages/messages.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/messages/messages.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/messages/messages.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/dto/update-user.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/dto/update-user.dto.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/dto/update-user.dto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/dto/update-user.dto.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/users/dto/update-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/users/dto/update-user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/users/users.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/auth/src/app/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/auth/src/app/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/auth/src/app/authentification/authentification.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/auth/src/app/authentification/authentification.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/auth/src/app/authentification/authentification.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/auth/src/app/authentification/authentification.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/message-page/message-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/message-page/message-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/messages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/messages.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/messages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/messages.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/microfrontend-shell/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/microfrontend-shell/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/microfrontend-shell/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/microfrontend-shell/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/microfrontend-shell/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/microfrontend-shell/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/microfrontend-shell/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/microfrontend-shell/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/microfrontend-shell/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/microfrontend-shell/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/user-page/user-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/user-page/user-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/users.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/users.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/users.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fusion_profiles_users" />
+        <entry key="$PROJECT_DIR$" value="messages" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +77,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "messages",
+    "git-widget-placeholder": "link__all__frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

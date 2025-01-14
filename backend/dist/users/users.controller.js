@@ -28,6 +28,9 @@ let UsersController = class UsersController {
     async searchByCity(city) {
         return this.usersService.searchByCity(city);
     }
+    async findByCEmail(email) {
+        return this.usersService.findByEmail(email);
+    }
     async getProfile(username) {
         return this.usersService.findByUsername(username);
     }
@@ -50,6 +53,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "searchByCity", null);
+__decorate([
+    (0, common_1.Get)('findByEmail'),
+    __param(0, (0, common_1.Query)('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "findByCEmail", null);
 __decorate([
     (0, common_1.Get)(':username'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),

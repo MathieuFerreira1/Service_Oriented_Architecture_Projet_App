@@ -23,14 +23,15 @@ export class UserPageComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    localStorage.setItem(
-      'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY2MDc1OTMsImV4cCI6MTczNjYxMTE5M30.H0GtgAs0V7Um8iajkbN5du-_to6HnTQ84mUR5w83Oto'
-    );
+    // localStorage.setItem(
+    //   'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY2MDc1OTMsImV4cCI6MTczNjYxMTE5M30.H0GtgAs0V7Um8iajkbN5du-_to6HnTQ84mUR5w83Oto'
+    // );
 
     // Vérification du JWT pour s'assurer que l'utilisateur est connecté
     const token = localStorage.getItem('jwt');
     if (!token || !this.isValidToken(token)) {
       alert('Vous devez être connecté pour accéder à cette page');
+      window.location.href = '/'; // Rediriger vers la page de connexion
       return; // Empêche l'accès à la page si le token est invalide
     }
 

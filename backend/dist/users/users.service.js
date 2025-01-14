@@ -45,6 +45,9 @@ let UsersService = class UsersService {
         return user;
     }
     async updateUser(username, updateUserDto) {
+        if (updateUserDto.password) {
+            updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
+        }
         const user = await this.userModel.findOneAndUpdate({ username }, { $set: updateUserDto }, { new: true });
         if (!user) {
             throw new common_1.NotFoundException(`User with username "${username}" not found`);

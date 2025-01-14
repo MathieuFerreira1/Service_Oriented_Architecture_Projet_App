@@ -54,43 +54,55 @@ export class AuthentificationComponent {
       const { email, password } = this.authForm.value;
 
       this.http
-          .post(
-              `${this.apiUrl}/auth/login`, // URL de l'API pour la connexion
-              { email, password }, // Corps de la requête
-              { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
-          )
-          .subscribe({
-            next: (response: any) => {
-              console.log('Réponse de connexion :', response.access_token);
-              localStorage.setItem('token', response.access_token); // Stocker le JWT
-              alert('Connexion réussie !');
-              this.router.navigate(['/']); // Rediriger après connexion
-            },
-            error: (error) => {
-              console.error('Erreur de connexion :', error);
-              alert('Échec de la connexion. Veuillez vérifier vos informations.');
-            },
-          });
+        .post(
+          `${this.apiUrl}/auth/login`, // URL de l'API pour la connexion
+          { email, password }, // Corps de la requête
+          { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log('Réponse de connexion :', response.access_token);
+            localStorage.setItem('jwt', response.access_token); // Stocker le JWT
+            alert('Connexion réussie !');
+
+            // Requête pour obtenir l'utilisateur par email
+            this.http
+              .get(`${this.apiUrl}/users/findByEmail?email=${email}`)
+              .subscribe({
+                next: (user: any) => {
+                  this.router.navigate([`/users/${user.username}`]); // Rediriger vers la page de l'utilisateur
+                },
+                error: (error) => {
+                  console.error('Erreur lors de la récupération de l\'utilisateur :', error);
+                  alert('Erreur lors de la récupération de l\'utilisateur.');
+                },
+              });
+          },
+          error: (error) => {
+            console.error('Erreur de connexion :', error);
+            alert('Échec de la connexion. Veuillez vérifier vos informations.');
+          },
+        });
     } else {
       // Création de compte
       const { username, email, password, city, bio } = this.authForm.value;
 
       this.http
-          .post(
-              `${this.apiUrl}/auth/register`, // URL de l'API pour l'inscription
-              { username, email, password, city, bio }, // Corps de la requête
-              { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
-          )
-          .subscribe({
-            next: () => {
-              alert('Compte créé avec succès ! Vous pouvez maintenant vous connecter.');
-              this.toggleMode(); // Revenir au mode connexion
-            },
-            error: (error) => {
-              console.error('Erreur lors de la création de compte :', error);
-              alert('Échec de la création du compte. Veuillez réessayer.');
-            },
-          });
+        .post(
+          `${this.apiUrl}/auth/register`, // URL de l'API pour l'inscription
+          { username, email, password, city, bio }, // Corps de la requête
+          { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
+        )
+        .subscribe({
+          next: () => {
+            alert('Compte créé avec succès ! Vous pouvez maintenant vous connecter.');
+            this.toggleMode(); // Revenir au mode connexion
+          },
+          error: (error) => {
+            console.error('Erreur lors de la création de compte :', error);
+            alert('Échec de la création du compte. Veuillez réessayer.');
+          },
+        });
     }
   }
 }

@@ -29,6 +29,12 @@ export class UsersController {
     return this.usersService.searchByCity(city);
   }
 
+  // Recherche par email
+  @Get('findByEmail')
+  async findByCEmail(@Query('email') email: string) {
+    return this.usersService.findByEmail(email);
+  }
+
   // Rechercher un utilisateur par username
   @Get(':username')
   @UseGuards(JwtAuthGuard) // Protégé par JWT

@@ -5,7 +5,11 @@ import { UsersComponent } from './users.component'; // Importez le composant sta
 
 const routes: Routes = [
   {
-    path: '',
+    path: '/users',
+    component: UsersComponent, // Utilisez le composant standalone
+  },
+  {
+    path: '/users/:username',
     component: UsersComponent, // Utilisez le composant standalone
   },
 ];
