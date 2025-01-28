@@ -11,7 +11,7 @@ async function bootstrap() {
       'http://localhost:4201',
       'http://localhost:4202',
       'http://localhost:4203',
-    ], // Les origines de votre frontend Angular
+    ], // Les origines de votre frontend_old Angular
     methods: 'GET,POST,PUT,DELETE', // Méthodes autorisées
     allowedHeaders: 'Content-Type, Authorization', // Headers autorisés
   });

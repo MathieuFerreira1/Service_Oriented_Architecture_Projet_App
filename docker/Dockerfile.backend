@@ -1,0 +1,20 @@
+# Dockerfile.backend
+FROM node:18
+
+# Définit le répertoire de travail dans le conteneur
+WORKDIR /usr/src/app
+
+# Copie uniquement les fichiers nécessaires pour installer les dépendances
+COPY package*.json ./
+
+# Installe les dépendances
+RUN npm install
+
+# Copie tous les fichiers du backend
+COPY . .
+
+# Définit le port exposé par le conteneur
+EXPOSE 3000
+
+# Commande pour démarrer le serveur
+CMD ["npm", "run", "start:dev"]

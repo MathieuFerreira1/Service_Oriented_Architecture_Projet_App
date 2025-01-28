@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="35779389-b3d0-4123-8c70-d43e367f8e6c" name="Changes" comment="[ADD] secured API Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/chat/chat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/messages/src/app/message-page/message-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/messages/src/app/message-page/message-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/users/src/app/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
       </list>
@@ -33,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="messages" />
+        <entry key="$PROJECT_DIR$" value="modif_messages" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,9 +49,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.docker-compose.yml.backend: Compose Deployment.executor": "Run",
+    "Docker.docker.backend: Compose Deployment.executor": "Run",
+    "Docker.docker.frontend-shell: Compose Deployment.executor": "Run",
+    "Docker.docker: Compose Deployment.executor": "Run",
+    "JavaScript Debug.localhost:4201.executor": "Debug",
+    "JavaScript Debug.remoteEntry.js.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "modif__messages",
+    "git-widget-placeholder": "docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,9 +71,68 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/microfrontend-shell/src/types" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend/src/auth/guards" />
       <recent name="$PROJECT_DIR$/backend/src/users/schemas" />
     </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.remoteEntry.js">
+    <configuration name="localhost:4201" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:4201/">
+      <method v="2" />
+    </configuration>
+    <configuration name="remoteEntry.js" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:4201/remoteEntry.js">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.backend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="backend" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.frontend-shell: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="frontend-shell" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.remoteEntry.js" />
+        <item itemvalue="JavaScript Debug.localhost:4201" />
+        <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.frontend-shell: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -89,6 +152,10 @@
       <workItem from="1736251308071" duration="26182000" />
       <workItem from="1736456678234" duration="16910000" />
       <workItem from="1736597252805" duration="23363000" />
+      <workItem from="1736884061535" duration="3617000" />
+      <workItem from="1736945277116" duration="3388000" />
+      <workItem from="1737717457452" duration="10260000" />
+      <workItem from="1737900874276" duration="38973000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD] secured API Rest">
       <option name="closed" value="true" />

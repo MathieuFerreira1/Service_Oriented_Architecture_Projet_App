@@ -1,0 +1,23 @@
+# Utilisation de l'image Node officielle
+FROM node:18
+
+# Répertoire de travail
+WORKDIR /app
+
+# Copie des fichiers de l'application
+COPY package.json package-lock.json ./
+
+# Installation des dépendances
+RUN npm install
+
+# Copie du reste des fichiers
+COPY . .
+
+# Vérifie que les dépendances sont installées et que Angular CLI est présent
+#RUN npx ng --version
+
+# Exposition du port de l'application Angular
+EXPOSE 4200
+
+# Commande pour démarrer l'application
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--configuration=development"]

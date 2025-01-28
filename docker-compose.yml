@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile.backend
+    ports:
+      - "3000:3000"  # Exposer le port backend
+    networks:
+      - app-network
+
+  auth:
+    build:
+      context: frontend_old/auth
+      dockerfile: ../../docker/Dockerfile.frontend-auth
+    ports:
+      - "4201:4201"  # Exposer le port pour l'app Auth
+    networks:
+      - app-network
+
+  users:
+    build:
+      context: frontend_old/users
+      dockerfile: ../../docker/Dockerfile.frontend-users
+    ports:
+      - "4202:4202"  # Exposer le port pour l'app Users
+    networks:
+      - app-network
+
+  messages:
+    build:
+      context: frontend_old/messages
+      dockerfile: ../../docker/Dockerfile.frontend-messages
+    ports:
+      - "4203:4203"  # Exposer le port pour l'app Messages
+    networks:
+      - app-network
+
+  frontend-shell:
+    build:
+      context: frontend_old/microfrontend-shell
+      dockerfile: ../../docker/Dockerfile.frontend-shell
+    ports:
+      - "4200:4200"  # Exposer le port pour microfrontend-shell
+    networks:
+      - app-network
+    depends_on:
+      - auth
+      - users
+      - messages
+
+networks:
+  app-network:
+    driver: bridge
