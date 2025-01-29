@@ -1,23 +1,23 @@
-# Utilisation de l'image Node officielle
+# Utilisation de l'image officielle Node.js
 FROM node:18
 
 # Répertoire de travail
 WORKDIR /app
 
-# Copie des fichiers de l'application
+# Copier les fichiers de dépendances
 COPY package.json package-lock.json ./
 
-# Installation des dépendances
+# Installer les dépendances
 RUN npm install
 
-# Copie du reste des fichiers
+# Copier le reste des fichiers frontend
 COPY . .
 
-# Vérifie que les dépendances sont installées et que Angular CLI est présent
-#RUN npx ng --version
+# Construire l'application Angular
+#RUN npm run build --prod
 
-# Exposition du port de l'application Angular
-EXPOSE 4200
+# Exposer le port de l'app auth
+EXPOSE 4201
 
-# Commande pour démarrer l'application
-CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--configuration=development"]
+# Démarrer l'application auth
+CMD ["npx", "nx", "run", "auth:serve", "--host", "0.0.0.0", "--disable-host-check"]

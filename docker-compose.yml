@@ -1,6 +1,7 @@
-version: '3.7'
+version: '3.8'
 
 services:
+  # Backend
   backend:
     build:
       context: ./backend
@@ -10,45 +11,66 @@ services:
     networks:
       - app-network
 
+  # Microfrontend Shell
+  microfrontend-shell:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend-shell
+    container_name: microfrontend-shell
+    ports:
+      - "4200:4200"  # Exposer le port pour l'app Auth
+    networks:
+      - app-network
+
+  # Microfrontend Auth
   auth:
     build:
-      context: frontend_old/auth
-      dockerfile: ../../docker/Dockerfile.frontend-auth
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend-auth
+    container_name: auth
     ports:
       - "4201:4201"  # Exposer le port pour l'app Auth
     networks:
       - app-network
 
+  # Microfrontend Users
   users:
     build:
-      context: frontend_old/users
-      dockerfile: ../../docker/Dockerfile.frontend-users
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend-users
+    container_name: users
     ports:
-      - "4202:4202"  # Exposer le port pour l'app Users
+      - "4202:4202"  # Exposer le port pour l'app Auth
     networks:
       - app-network
 
+  # Microfrontend Messages
   messages:
     build:
-      context: frontend_old/messages
-      dockerfile: ../../docker/Dockerfile.frontend-messages
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend-messages
+    container_name: messages
     ports:
-      - "4203:4203"  # Exposer le port pour l'app Messages
+      - "4203:4203"  # Exposer le port pour l'app Auth
     networks:
       - app-network
 
-  frontend-shell:
+  # Nginx Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
     build:
-      context: frontend_old/microfrontend-shell
-      dockerfile: ../../docker/Dockerfile.frontend-shell
+      context: .
+      dockerfile: docker/nginx.conf
     ports:
-      - "4200:4200"  # Exposer le port pour microfrontend-shell
-    networks:
-      - app-network
+      - "80:80"
     depends_on:
+      - microfrontend-shell
       - auth
       - users
       - messages
+    networks:
+      - app-network
 
 networks:
   app-network:
