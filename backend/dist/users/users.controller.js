@@ -29,7 +29,7 @@ let UsersController = class UsersController {
     async searchByCity(city) {
         return this.usersService.searchByCity(city);
     }
-    async findByCEmail(email) {
+    async findByEmail(email) {
         return this.usersService.findByEmail(email);
     }
     async getProfile(username) {
@@ -63,7 +63,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
-], UsersController.prototype, "findByCEmail", null);
+], UsersController.prototype, "findByEmail", null);
 __decorate([
     (0, common_1.Get)(':username'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
