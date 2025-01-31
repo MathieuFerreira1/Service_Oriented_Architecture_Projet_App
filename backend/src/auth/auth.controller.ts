@@ -1,10 +1,14 @@
 import { Controller, Post, Body, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { Inject } from '@nestjs/common';
+import { ClientKafka } from '@nestjs/microservices';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService,
+  @Inject('KAFKA_SERVICE') private kafkaService: ClientKafka
+  ) {}
 
   /**
    * Endpoint pour enregistrer un nouvel utilisateur
@@ -13,6 +17,8 @@ export class AuthController {
    */
   @Post('register')
   async register(@Body() userDto: any): Promise<any> {
+    // this.kafkaService.emit('user.created', { id: userDto.id, username: userDto.username });
+    this.kafkaService.emit('user.created', `${userDto.username } has been created`);
     return this.authService.register(userDto);
   }
 

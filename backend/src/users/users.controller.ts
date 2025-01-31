@@ -12,6 +12,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller('users')
 export class UsersController {
@@ -50,5 +51,11 @@ export class UsersController {
     @Body() updateUserDto: UpdateUserDto,
   ) {
     return this.usersService.updateUser(username, updateUserDto);
+  }
+
+  @MessagePattern('user.created') // Écoute les événements sur le topic "user.created"
+  handleUserCreated(@Payload() message: any) {
+    console.log('New user created:', message);
+    // Logique métier pour gérer l'événement
   }
 }
