@@ -1,7 +1,5 @@
 # Service_Oriented_Architecture_Projet_App
 
-# Project Overview
-
 This is a modular application that enables users to manage authentication, profiles, and messaging in a distributed environment based on micro-frontends. The application is built using modern frameworks and tools to ensure scalability, maintainability, and performance.
 
 ## Features
@@ -89,10 +87,10 @@ project-root/
 │   ├── nx.json                         # Main NX config (cache, dependency graphs, etc.)
 │   ├── package.json                    # Global dependencies
 │   ├── tsconfig.base.json              # Global TypeScript config
-│   ├── webpack.config.js               # Webpack config if needed (optional at the root level)
+│   ├── webpack.config.js               # Webpack config if needed
 │   ├── workspace.json                  # NX workspace config (targets apps/libs and their commands)
 │
-├── docker/                            # (Optional) Containerization files
+├── docker/                            # Containerization files
 │   ├── Dockerfile.backend             # Dockerfile for the backend
 │   ├── Dockerfile.frontend-shell      # Dockerfile for the main shell
 │   ├── Dockerfile.frontend-auth       # Dockerfile for the auth micro frontend
