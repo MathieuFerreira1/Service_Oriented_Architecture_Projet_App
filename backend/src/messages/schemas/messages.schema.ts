@@ -10,15 +10,15 @@ export class Message {
   receiver: Types.ObjectId;
 
   @Prop({ required: true })
-  content: string; // Contenu du message
+  content: string;
 }
 
 @Schema({ timestamps: true })
 export class Conversation extends Document {
-  @Prop({ type: [Types.ObjectId], required: true, ref: 'User' }) // IDs des participants
+  @Prop({ type: [Types.ObjectId], required: true, ref: 'User' })
   participants: Types.ObjectId[];
 
-  @Prop({ type: [Message], default: [] }) // Liste des messages
+  @Prop({ type: [Message], default: [] })
   messages: Message[];
 }
 

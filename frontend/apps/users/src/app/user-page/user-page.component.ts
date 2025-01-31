@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'; // Importer HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { UserListComponent } from '../user-list/user-list.component';
 import { UserComponent } from '../user/user.component';
@@ -12,7 +12,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css'],
-  imports: [SearchBarComponent, UserListComponent, HttpClientModule], // Ajouter HttpClientModule ici
+  imports: [SearchBarComponent, UserListComponent, HttpClientModule],
 })
 export class UserPageComponent implements OnInit {
   user: any = null;
@@ -20,28 +20,27 @@ export class UserPageComponent implements OnInit {
   city: string = '';
   apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // localStorage.setItem(
     //   'jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJzdWIiOiI2NzgxNGFiMWE1ODMyZDQ1NmY0MTZlNTAiLCJpYXQiOjE3MzY2MDc1OTMsImV4cCI6MTczNjYxMTE5M30.H0GtgAs0V7Um8iajkbN5du-_to6HnTQ84mUR5w83Oto'
     // );
 
-    // Vérification du JWT pour s'assurer que l'utilisateur est connecté
     const token = localStorage.getItem('jwt');
     if (!token || !this.isValidToken(token)) {
-      alert('Vous devez être connecté pour accéder à cette page');
-      window.location.href = '/'; // Rediriger vers la page de connexion
-      return; // Empêche l'accès à la page si le token est invalide
+      alert('You must be logged in to access this page');
+      window.location.href = '/';
+      return;
     }
 
-    // Récupérer l'utilisateur à partir du token
+
     const username = this.route.snapshot.paramMap.get('username');
     if (username) {
       this.getUserByUsername(username);
     }
 
-    // Si la ville change, rechercher les utilisateurs
+
     if (this.city) {
       this.onSearch(this.city);
     }
@@ -63,14 +62,21 @@ export class UserPageComponent implements OnInit {
     });
   }
 
-  // Fonction pour vérifier la validité du JWT
+
   private isValidToken(token: string): boolean {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      // Vérifier si la date d'expiration est valide
       return payload.exp > Date.now() / 1000;
     } catch (e) {
       return false;
     }
   }
+
+  goToMessages(): void {
+    const username = this.route.snapshot.paramMap.get('username');
+    if (username) {
+      this.router.navigate([`/messages/${username}`]);
+    }
+  }
+
 }

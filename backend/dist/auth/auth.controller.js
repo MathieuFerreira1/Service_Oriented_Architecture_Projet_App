@@ -16,11 +16,15 @@ exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
 const jwt_auth_guard_1 = require("./guards/jwt-auth.guard");
+const common_2 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 let AuthController = class AuthController {
-    constructor(authService) {
+    constructor(authService, kafkaService) {
         this.authService = authService;
+        this.kafkaService = kafkaService;
     }
     async register(userDto) {
+        this.kafkaService.emit('user.created', `${userDto.username} has been created`);
         return this.authService.register(userDto);
     }
     async login(loginDto) {
@@ -54,6 +58,8 @@ __decorate([
 ], AuthController.prototype, "protectedRoute", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __param(1, (0, common_2.Inject)('KAFKA_SERVICE')),
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        microservices_1.ClientKafka])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

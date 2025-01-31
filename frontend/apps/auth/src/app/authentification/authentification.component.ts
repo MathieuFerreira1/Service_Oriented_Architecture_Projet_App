@@ -7,100 +7,100 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-authentification',
-  standalone: true, // Le composant est standalone
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule], // Ajout de HttpClientModule ici
+  standalone: true, // The component is standalone
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule], // Adding HttpClientModule here
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.css'],
 })
 export class AuthentificationComponent {
   authForm!: FormGroup;
-  isLoginMode = true; // Par défaut, mode connexion
-  apiUrl = 'http://localhost:3000'; // Remplacez par l'URL de votre backend API
+  isLoginMode = true; // Default to login mode
+  apiUrl = 'http://localhost:3000'; // Replace with your backend API URL
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.initForm();
   }
 
-  // Initialisation du formulaire
+  // Initialize the form
   initForm() {
     this.authForm = this.isLoginMode
-        ? this.fb.group({
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-        })
-        : this.fb.group({
-          username: ['', [Validators.required]],
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-          city: ['', [Validators.required]],
-          bio: ['', [Validators.required, Validators.maxLength(200)]],
-        });
+      ? this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+      })
+      : this.fb.group({
+        username: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        city: ['', [Validators.required]],
+        bio: ['', [Validators.required, Validators.maxLength(200)]],
+      });
   }
 
-  // Basculer entre connexion et création de compte
+  // Toggle between login and signup mode
   toggleMode() {
     this.isLoginMode = !this.isLoginMode;
-    this.initForm(); // Réinitialiser le formulaire pour le nouveau mode
+    this.initForm(); // Reset the form for the new mode
   }
 
-  // Soumission du formulaire
+  // Form submission
   onSubmit() {
     if (this.authForm.invalid) {
       return;
     }
 
     if (this.isLoginMode) {
-      // Connexion
+      // Login
       const { email, password } = this.authForm.value;
 
       this.http
         .post(
-          `${this.apiUrl}/auth/login`, // URL de l'API pour la connexion
-          { email, password }, // Corps de la requête
-          { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
+          `${this.apiUrl}/auth/login`, // API URL for login
+          { email, password }, // Request body
+          { headers: { 'Content-Type': 'application/json' } } // HTTP headers
         )
         .subscribe({
           next: (response: any) => {
-            console.log('Réponse de connexion :', response.access_token);
-            localStorage.setItem('jwt', response.access_token); // Stocker le JWT
-            alert('Connexion réussie !');
+            console.log('Login response:', response.access_token);
+            localStorage.setItem('jwt', response.access_token); // Store the JWT
+            alert('Login successful!');
 
-            // Requête pour obtenir l'utilisateur par email
+            // Request to get the user by email
             this.http
               .get(`${this.apiUrl}/users/findByEmail?email=${email}`)
               .subscribe({
                 next: (user: any) => {
-                  this.router.navigate([`/users/${user.username}`]); // Rediriger vers la page de l'utilisateur
+                  this.router.navigate([`/users/${user.username}`]); // Redirect to the user's page
                 },
                 error: (error) => {
-                  console.error('Erreur lors de la récupération de l\'utilisateur :', error);
-                  alert('Erreur lors de la récupération de l\'utilisateur.');
+                  console.error('Error fetching user:', error);
+                  alert('Error fetching user.');
                 },
               });
           },
           error: (error) => {
-            console.error('Erreur de connexion :', error);
-            alert('Échec de la connexion. Veuillez vérifier vos informations.');
+            console.error('Login error:', error);
+            alert('Login failed. Please check your credentials.');
           },
         });
     } else {
-      // Création de compte
+      // Signup
       const { username, email, password, city, bio } = this.authForm.value;
 
       this.http
         .post(
-          `${this.apiUrl}/auth/register`, // URL de l'API pour l'inscription
-          { username, email, password, city, bio }, // Corps de la requête
-          { headers: { 'Content-Type': 'application/json' } } // En-têtes HTTP
+          `${this.apiUrl}/auth/register`, // API URL for registration
+          { username, email, password, city, bio }, // Request body
+          { headers: { 'Content-Type': 'application/json' } } // HTTP headers
         )
         .subscribe({
           next: () => {
-            alert('Compte créé avec succès ! Vous pouvez maintenant vous connecter.');
-            this.toggleMode(); // Revenir au mode connexion
+            alert('Account created successfully! You can now log in.');
+            this.toggleMode(); // Switch back to login mode
           },
           error: (error) => {
-            console.error('Erreur lors de la création de compte :', error);
-            alert('Échec de la création du compte. Veuillez réessayer.');
+            console.error('Signup error:', error);
+            alert('Account creation failed. Please try again.');
           },
         });
     }

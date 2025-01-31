@@ -12,9 +12,9 @@ import { NgFor } from '@angular/common';
   styleUrls: ['./conversation-list.component.css'],
 })
 export class ConversationListComponent implements OnInit {
-  conversations: any[] = []; // Liste des conversations
+  conversations: any[] = [];
   connectedUserId!: string; // Add a property for the connected user's ID
-  @Output() selectConversation = new EventEmitter<string>(); // Émet l'ID de la conversation sélectionnée
+  @Output() selectConversation = new EventEmitter<string>();
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 

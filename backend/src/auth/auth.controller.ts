@@ -7,13 +7,13 @@ import { ClientKafka } from '@nestjs/microservices';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService,
-  @Inject('KAFKA_SERVICE') private kafkaService: ClientKafka
+              @Inject('KAFKA_SERVICE') private kafkaService: ClientKafka
   ) {}
 
   /**
-   * Endpoint pour enregistrer un nouvel utilisateur
+   * Endpoint to register a new user
    * @route POST /auth/register
-   * @param userDto (correspond aux données envoyées par le client)
+   * @param userDto (corresponds to the data sent by the client)
    */
   @Post('register')
   async register(@Body() userDto: any): Promise<any> {
@@ -23,9 +23,9 @@ export class AuthController {
   }
 
   /**
-   * Endpoint pour connecter un utilisateur
+   * Endpoint to log in a user
    * @route POST /auth/login
-   * @param loginDto (correspond aux données envoyées par le client)
+   * @param loginDto (corresponds to the data sent by the client)
    */
   @Post('login')
   async login(@Body() loginDto: any): Promise<any> {
@@ -33,7 +33,7 @@ export class AuthController {
   }
 
   /**
-   * Exemple de route sécurisée avec JWT
+   * Example of a protected route with JWT
    * @route GET /auth/protected
    * @guards JwtAuthGuard
    */

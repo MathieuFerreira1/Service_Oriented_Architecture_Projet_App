@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageComponent } from '../message/message.component';
 import { NgFor } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-message-list',
@@ -13,8 +14,10 @@ import { NgFor } from '@angular/common';
 export class MessageListComponent implements OnInit {
   @Input() conversationId: string = '';
   messages: any[] = [];
+  connectedUser: any = {};
+  convUser: any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.loadMessages();
@@ -22,6 +25,7 @@ export class MessageListComponent implements OnInit {
 
   loadMessages(): void {
     const token = localStorage.getItem('jwt'); // Retrieve the token from localStorage
+    const connectedUsername = this.route.snapshot.paramMap.get('username'); // Get the username from the URL
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -31,11 +35,20 @@ export class MessageListComponent implements OnInit {
         .subscribe((data) => {
           if (data && Array.isArray(data.messages)) {
             this.messages = data.messages;
-            // console.log('Messages:', this.messages);
+            this.setUsers(data.participants, connectedUsername);
           } else {
             console.error('Data is not in the expected format:', data);
           }
         });
+    }
+  }
+
+  setUsers(participants: any[], connectedUsername: string | null): void {
+    if (participants.length === 2 && connectedUsername) {
+      this.connectedUser = participants.find(participant => participant.username === connectedUsername) || {};
+      this.convUser = participants.find(participant => participant.username !== connectedUsername) || {};
+      console.log('Connected user:', this.connectedUser);
+      console.log('Conversation user:', this.convUser);
     }
   }
 

@@ -11,12 +11,12 @@ import { FormsModule } from '@angular/forms';
   ],
 })
 export class SearchBarComponent {
-  @Output() search = new EventEmitter<string>(); // Emmètre l'événement de recherche
+  @Output() search = new EventEmitter<string>();
   city: string = '';
 
   onKeyUp(event: KeyboardEvent): void {
-    if (event.key === 'Enter') { // Détecter la touche "Entrée"
-      this.search.emit(this.city); // Émettre l'événement avec la ville
+    if (event.key === 'Enter') {
+      this.search.emit(this.city);
     }
   }
 }

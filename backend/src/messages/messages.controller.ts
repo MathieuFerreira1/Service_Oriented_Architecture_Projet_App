@@ -11,33 +11,23 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { MessagesService } from './messages.service';
 
 @Controller('messages')
-@UseGuards(JwtAuthGuard) // Toutes les routes nécessitent un JWT valide
+@UseGuards(JwtAuthGuard) // All routes require a valid JWT
 export class MessagesController {
   constructor(private readonly messagesService: MessagesService) {}
 
-  // Récupérer toutes les conversations d’un utilisateur
+  // Retrieve all conversations of a user
   @Get()
   async getUserConversations(@Query('userId') userId: string) {
     return this.messagesService.getUserConversations(userId);
   }
 
-  // // Récupérer une conversation spécifique
-  // @Get(':receiverId')
-  // async getConversation(
-  //   @Query('senderId') senderId: string,
-  //   @Param('receiverId') receiverId: string,
-  // ) {
-  //   return this.messagesService.getConversation(senderId, receiverId);
-  // }
-
-  // Récupérer une conversation spécifique
-  // Récupérer une conversation spécifique par ID de conversation
+  // Retrieve a specific conversation by conversation ID
   @Get('/:conversationId')
   async getConversationById(@Param('conversationId') conversationId: string) {
     return this.messagesService.getConversationById(conversationId);
   }
 
-  // Envoyer un message
+  // Send a message
   @Post()
   async sendMessage(
     @Body('senderId') senderId: string,

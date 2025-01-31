@@ -12,7 +12,7 @@ export class UsersService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
   ) {}
 
-  // Créer un utilisateur
+  // Create a user
   async createUser(createUserDto: CreateUserDto): Promise<User> {
     const { password, ...otherDetails } = createUserDto;
 
@@ -32,12 +32,12 @@ export class UsersService {
     return this.userModel.findOne({ email }).exec();
   }
 
-  // Trouver un utilisateur par email (pour l'authentification)
+  // Find a user by email (for authentication)
   async findByEmail(email: string): Promise<User | null> {
     return await this.userModel.findOne({ email }).exec();
   }
 
-  // Trouver un utilisateur par son username
+  // Find a user by username
   async findByUsername(username: string): Promise<User | null> {
     const user = await this.userModel.findOne({ username }).exec();
     if (!user) {
@@ -46,7 +46,7 @@ export class UsersService {
     return user;
   }
 
-  // Mise à jour d'un profil utilisateur
+  // Update a user profile
   async updateUser(
     username: string,
     updateUserDto: UpdateUserDto,
@@ -66,7 +66,7 @@ export class UsersService {
     return user;
   }
 
-  // Recherche par ville
+  // Search by city
   async searchByCity(city: string): Promise<User[]> {
     return await this.userModel.find({ city }).exec();
   }

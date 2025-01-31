@@ -9,7 +9,7 @@ import { MessagesModule } from './messages/messages.module';
     MongooseModule.forRoot(
       'mongodb+srv://mathieu:mathieupassword@cluster0.bmdk5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
       {
-        dbName: 'projet', // Nom de la base de données que tu veux utiliser
+        dbName: 'projet',
       },
     ),
     AuthModule,

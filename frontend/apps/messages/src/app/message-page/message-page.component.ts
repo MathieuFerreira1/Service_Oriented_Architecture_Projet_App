@@ -24,7 +24,7 @@ export class MessagePageComponent implements OnInit {
   ngOnInit(): void {
     const token = localStorage.getItem('jwt');
     if (!token || !this.isValidToken(token)) {
-      alert('Vous devez être connecté pour accéder à cette page');
+      alert('You must be logged in to access this page');
       window.location.href = '/';
       return;
     }

@@ -14,6 +14,7 @@ const auth_service_1 = require("./auth.service");
 const auth_controller_1 = require("./auth.controller");
 const users_module_1 = require("../users/users.module");
 const jwt_strategy_1 = require("./strategies/jwt.strategy");
+const microservices_1 = require("@nestjs/microservices");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -26,6 +27,21 @@ exports.AuthModule = AuthModule = __decorate([
                 secret: process.env.JWT_SECRET || 'default-secret-key',
                 signOptions: { expiresIn: '1h' },
             }),
+            microservices_1.ClientsModule.register([
+                {
+                    name: 'KAFKA_SERVICE',
+                    transport: microservices_1.Transport.KAFKA,
+                    options: {
+                        client: {
+                            clientId: 'auth',
+                            brokers: ['kafka:9092'],
+                        },
+                        consumer: {
+                            groupId: 'my-group-auth',
+                        },
+                    },
+                },
+            ]),
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy],

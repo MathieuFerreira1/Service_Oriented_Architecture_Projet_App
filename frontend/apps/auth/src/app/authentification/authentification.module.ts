@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthentificationComponent } from './authentification.component';
 
 @NgModule({
-  declarations: [], // Déclarez le composant ici
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     AuthentificationComponent,
   ],
-  exports: [AuthentificationComponent], // Exportez-le si besoin
+  exports: [AuthentificationComponent],
 })
 export class AuthentificationModule {}

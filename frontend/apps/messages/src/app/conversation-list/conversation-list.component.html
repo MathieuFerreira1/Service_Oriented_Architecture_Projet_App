@@ -1,5 +1,5 @@
 <div class="p-4">
-  <h2 class="text-xl font-bold mb-4">Mes conversations</h2>
+  <h2 class="text-xl font-bold mb-4">My conversations</h2>
   <div *ngFor="let conversation of conversations">
     <app-conversation-item [conversation]="conversation" [connectedUserId]="connectedUserId" (click)="onSelect(conversation._id)"></app-conversation-item>
   </div>

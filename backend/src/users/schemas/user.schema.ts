@@ -10,16 +10,16 @@ export class User extends Document {
   email: string;
 
   @Prop({ required: true })
-  password: string; // Stockage du mot de passe haché
+  password: string;
 
   @Prop()
-  city: string; // Ville où habite l'utilisateur
+  city: string;
 
   @Prop()
-  bio: string; // Biographie ou description personnelle
+  bio: string;
 
   @Prop({ default: Date.now })
-  createdAt: Date; // Date de création du compte
+  createdAt: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

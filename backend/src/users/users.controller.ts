@@ -18,34 +18,34 @@ import { MessagePattern, Payload } from '@nestjs/microservices';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  // Créer un compte
+  // Create an account
   @Post('register')
   async createUser(@Body() createUserDto: CreateUserDto) {
     return this.usersService.createUser(createUserDto);
   }
 
-  // Recherche par ville
+  // Search by city
   @Get('search')
   async searchByCity(@Query('city') city: string) {
     return this.usersService.searchByCity(city);
   }
 
-  // Recherche par email
+  // Search by email
   @Get('findByEmail')
-  async findByCEmail(@Query('email') email: string) {
+  async findByEmail(@Query('email') email: string) {
     return this.usersService.findByEmail(email);
   }
 
-  // Rechercher un utilisateur par username
+  // Search for a user by username
   @Get(':username')
-  @UseGuards(JwtAuthGuard) // Protégé par JWT
+  @UseGuards(JwtAuthGuard) // Protected by JWT
   async getProfile(@Param('username') username: string) {
     return this.usersService.findByUsername(username);
   }
 
-  // Mise à jour du profil
+  // Update profile
   @Put(':username')
-  @UseGuards(JwtAuthGuard) // Protégé par JWT
+  @UseGuards(JwtAuthGuard) // Protected by JWT
   async updateProfile(
     @Param('username') username: string,
     @Body() updateUserDto: UpdateUserDto,
@@ -53,9 +53,9 @@ export class UsersController {
     return this.usersService.updateUser(username, updateUserDto);
   }
 
-  @MessagePattern('user.created') // Écoute les événements sur le topic "user.created"
+  @MessagePattern('user.created') // Listen to events on the "user.created" topic
   handleUserCreated(@Payload() message: any) {
     console.log('New user created:', message);
-    // Logique métier pour gérer l'événement
+    // Business logic to handle the event
   }
 }

@@ -10,7 +10,7 @@ export class MessagesService {
     private conversationModel: Model<Conversation>,
   ) {}
 
-  // Récupérer ou créer une conversation par ID utilisateur
+  // Retrieve or create a conversation by user ID
   async getOrCreateConversation(
     senderId: string,
     receiverId: string,
@@ -33,7 +33,7 @@ export class MessagesService {
     return conversation;
   }
 
-  // Envoyer un message
+  // Send a message
   async sendMessage(
     senderId: string,
     receiverId: string,
@@ -53,15 +53,15 @@ export class MessagesService {
     return await conversation.save();
   }
 
-  // Récupérer toutes les conversations d'un utilisateur
+  // Retrieve all conversations of a user
   async getUserConversations(userId: string): Promise<Conversation[]> {
     return this.conversationModel
       .find({ participants: new Types.ObjectId(userId) })
-      .populate('participants', 'username email') // Inclure les infos des utilisateurs
+      .populate('participants', 'username email') // Include user info
       .exec();
   }
 
-  // Récupérer une conversation spécifique
+  // Retrieve a specific conversation
   async getConversation(
     senderId: string,
     receiverId: string,
@@ -82,7 +82,7 @@ export class MessagesService {
     return conversation;
   }
 
-  // Récupérer une conversation spécifique par ID de conversation
+  // Retrieve a specific conversation by conversation ID
   async getConversationById(conversationId: string): Promise<Conversation> {
     const conversation = await this.conversationModel
       .findById(conversationId)

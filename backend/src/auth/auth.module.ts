@@ -9,11 +9,11 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
-    UsersModule, // Le module utilisateur pour la gestion des utilisateurs
-    PassportModule.register({ defaultStrategy: 'jwt' }), // Définir 'jwt' comme stratégie par défaut
+    UsersModule, // The user module for user management
+    PassportModule.register({ defaultStrategy: 'jwt' }), // Set 'jwt' as the default strategy
     JwtModule.register({
-      secret: process.env.JWT_SECRET || 'default-secret-key', // Clé secrète pour signer les tokens
-      signOptions: { expiresIn: '1h' }, // Durée de validité des tokens
+      secret: process.env.JWT_SECRET || 'default-secret-key', // Secret key to sign tokens
+      signOptions: { expiresIn: '1h' }, // Token validity duration
     }),
     ClientsModule.register([
       {
@@ -32,7 +32,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ]),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy], // Fournir le service et la stratégie JWT
-  exports: [AuthService], // Exporter AuthService pour l'utiliser dans d'autres modules
+  providers: [AuthService, JwtStrategy], // Provide the service and JWT strategy
+  exports: [AuthService], // Export AuthService for use in other modules
 })
 export class AuthModule {}

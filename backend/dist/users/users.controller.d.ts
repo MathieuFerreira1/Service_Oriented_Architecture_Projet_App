@@ -9,4 +9,5 @@ export declare class UsersController {
     findByCEmail(email: string): Promise<import("./schemas/user.schema").User>;
     getProfile(username: string): Promise<import("./schemas/user.schema").User>;
     updateProfile(username: string, updateUserDto: UpdateUserDto): Promise<import("./schemas/user.schema").User>;
+    handleUserCreated(message: any): void;
 }

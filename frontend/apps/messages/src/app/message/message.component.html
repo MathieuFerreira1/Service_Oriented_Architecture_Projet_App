@@ -1,5 +1,7 @@
-<div class="message">
-  <p><strong>Sender:</strong> {{ message.sender }}</p>
-  <p><strong>Content:</strong> {{ message.content }}</p>
-  <p><strong>Created At:</strong> {{ message.createdAt }}</p>
+<div class="message" [ngClass]="{'text-right': message.sender === connectedUser._id, 'text-left': message.sender !== connectedUser._id}">
+  <p class="font-bold">{{ message.sender === connectedUser._id ? 'me' : convUser.username }}</p>
+  <div class="inline-block p-2 rounded-lg" [ngClass]="{'bg-blue-500 text-white': message.sender === connectedUser._id, 'bg-gray-300 text-black': message.sender !== connectedUser._id}">
+    {{ message.content }}
+  </div>
+  <p class="text-sm">{{ message.createdAt | date:'shortTime' }}</p>
 </div>
