@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="35779389-b3d0-4123-8c70-d43e367f8e6c" name="Changes" comment="[ADD] secured API Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/auth/auth.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/auth/auth.controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/auth/strategies/jwt.strategy.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/auth/strategies/jwt.strategy.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/messages/messages.controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/users/users.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/users/users.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/auth/strategies/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/auth/strategies/jwt.strategy.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +65,13 @@
     "JavaScript Debug.remoteEntry.js.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "final",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/backend/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/frontend/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/mathieu/Etudes/ERASMUS/Service_Oriented_Architecture/Projet/Service_Oriented_Architecture_Projet_App/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"

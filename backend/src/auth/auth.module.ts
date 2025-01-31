@@ -6,14 +6,19 @@ import { AuthController } from './auth.controller';
 import { UsersModule } from '../users/users.module';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    UsersModule, // The user module for user management
-    PassportModule.register({ defaultStrategy: 'jwt' }), // Set 'jwt' as the default strategy
-    JwtModule.register({
-      secret: process.env.JWT_SECRET || 'default-secret-key', // Secret key to sign tokens
-      signOptions: { expiresIn: '1h' }, // Token validity duration
+    UsersModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: { expiresIn: '1h' },
+      }),
+      inject: [ConfigService],
     }),
     ClientsModule.register([
       {
@@ -32,7 +37,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ]),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy], // Provide the service and JWT strategy
-  exports: [AuthService], // Export AuthService for use in other modules
+  providers: [AuthService, JwtStrategy],
+  exports: [AuthService],
 })
 export class AuthModule {}
