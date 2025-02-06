@@ -1,5 +1,9 @@
 # UML C4 Documentation for the Project
 
+## UML Diagram
+<img width="776" alt="image" src="https://github.com/user-attachments/assets/260e9ec5-a588-4c92-8232-f6ba719bd90d" />
+
+
 ## Context Diagram (Level 1)
 
 The system is a modular application that allows users to manage authentication, profiles, and messages in a distributed environment based on micro-frontends. Here are the key entities:
